@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+  Dashboard
+{% endblock %}
+{% block content %}
+
+{% with total_images_created=request.user.images_created.count %}
+<h1>Dashboard</h1>
+<p>Welcome to your dashboard You have bookmarked {{ total_images_created }}
+  image {{ total_images_created|pluralize }}
+</p>
+{% endwith %}
+
+<p>Drag the following button to your bookmark toolbar to bookmark the image from other websites
+  <a href="javascript:{% include 'bookmarklet_launcher.js' %}" class="btn btn-outline-primary"> Bookmark it </a>
+</p>
+{% endblock  %}
